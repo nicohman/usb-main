@@ -51,7 +51,6 @@ releases.push({
 	short:"solus",
 	check_new:async function(last, cb){
 		request("https://stroblindustries.com/isos/Solus-3-Budgie.sha256sum", function(err, res, body){
-			console.log(body);
 			if(last === body){
 				cb(false);	
 			} else {
@@ -61,6 +60,22 @@ releases.push({
 	},
 	partition:"/dev/sdh1",
 	last:lasts.solus
+});
+releases.push({
+    name:"Ubuntu",
+    short:"ubuntu",
+    check_new:async function(last, cb){
+        request("http://cdimages.ubuntu.com/daily-live/current/MD5SUMS", function(err, res, body){
+            if(last === body){
+                cb(false);
+            } else {
+                cb("http://www.cdimages.ubuntu.com/daily-live/current/cosmic-desktop-amd64.iso", body);
+
+            }
+        })
+    },
+    partition:"/dev/sdi1",
+    last:lasts.ubuntu
 })
 function upLast(cb){
 	fs.writeFile("./lasts.json", JSON.stringify(lasts), function(err){
@@ -103,6 +118,8 @@ function next(index) {
                 })
             } else {
                 console.log(release.name + " is up to date!");
+                                		next(index+1);
+
             }
         })
 	} else {
