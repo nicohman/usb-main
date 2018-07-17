@@ -1,0 +1,19 @@
+{
+	"name": "usb-main",
+	"version": "0.0.1",
+	"description": "A program to maintain, update, and burn linux installation disks",
+	"author": "Nico Hickman <nico.hickman@gmail.com>",
+	"respository": {
+		"type": "git",
+		"url": "https://github.com/nicohman/usb-main.git"
+	},
+	"main": "usb-main.js",
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.2",
+		"commander": "^2.16.0",
+		"easy-table": "^1.1.1",
+		"follow-redirects": "^1.5.1",
+		"progress": "^2.0.0",
+		"request": "^2.87.0"
+	}
+}
