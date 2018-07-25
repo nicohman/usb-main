@@ -1,6 +1,10 @@
 # usb-main
 A nodejs-based tool that can automatically update and burn linux install disks.
 
+## Installation
+
+You can easily install this by running `npm install usb-main -g`
+
 ## Available Distros 
 Currently, there aren't many distos available, but pull requests to add distros are welcome.
 - Manjaro i3 Community Edition
